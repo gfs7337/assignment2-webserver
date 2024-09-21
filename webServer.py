@@ -27,8 +27,7 @@ def webServer(port=13331):
       
       #opens the client requested file. 
       #Plenty of guidance online on how to open and read a file in python. How should you read it though if you plan on sending it through a socket?
-      f = open('helloworld.html', 'r')
-      output = f.read()
+      f = open(filename[1:])
       #fill in start #fill in end)
       
       #fill in end
@@ -45,10 +44,10 @@ def webServer(port=13331):
  
       #Fill in end
                
-      for i in range(0,len(output)): #for line in file
+      for i in f: #for line in file
       #Fill in start - append your html file contents #Fill in end
-        connectionSocket.send(output[i].encode())
-        connectionSocket.send(response)
+        response += f.read()
+        connectionSocket.send(response.encode())
       #Send the content of the requested file to the client (don't forget the headers you created)!
       #Send everything as one send command, do not send one line/item at a time!
 
