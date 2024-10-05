@@ -43,9 +43,8 @@ def webServer(port=13331):
 
       # Fill in end
 
-      for i in data:  # for line in file
-        connectionSocket.send(outputdata)
-        connectionSocket.send(data)
+      for i in f:  # for line in file
+        connectionSocket.send(i)
       # Fill in start - append your html file contents #Fill in end
 
       # Send the content of the requested file to the client (don't forget the headers you created)!
